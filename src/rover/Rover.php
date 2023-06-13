@@ -9,12 +9,16 @@ class Rover
     {
     }
 
-    public function execute(string $instructions): String
+    public function execute(string $commands): String
     {
         $direction = "N";
 
-        foreach(str_split($instructions) as $instruction) {
-            $direction = "E";
+        foreach(str_split($commands) as $command) {
+            if ($command == "R") {
+                $direction = "E";
+            } else {
+                $direction = "W";
+            }
         }
 
         return "0:0:" . $direction;

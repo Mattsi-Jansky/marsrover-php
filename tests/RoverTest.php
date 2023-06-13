@@ -24,4 +24,12 @@ class RoverTest extends TestCase
         assertEquals("0:0:E", $result);
     }
 
+    public function testGivenRotateLeftCommandFacesWest()
+    {
+        $rover = new Rover();
+
+        $result = $rover->execute("L");
+
+        assertEquals("0:0:W", $result);
+    }
 }
