@@ -10,9 +10,18 @@ class RoverTest extends TestCase
     {
         $rover = new Rover();
 
-        $result = $rover->execute();
+        $result = $rover->execute("");
 
         assertEquals("0:0:N", $result);
+    }
+
+    public function testGivenRotateRightCommandFacesEast()
+    {
+        $rover = new Rover();
+
+        $result = $rover->execute("R");
+
+        assertEquals("0:0:E", $result);
     }
 
 }

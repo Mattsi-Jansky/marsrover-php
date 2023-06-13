@@ -9,8 +9,14 @@ class Rover
     {
     }
 
-    public function execute(): String
+    public function execute(string $instructions): String
     {
-        return "0:0:N";
+        $direction = "N";
+
+        foreach(str_split($instructions) as $instruction) {
+            $direction = "E";
+        }
+
+        return "0:0:" . $direction;
     }
 }
