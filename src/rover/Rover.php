@@ -11,6 +11,6 @@ class Rover
 
     public function execute(): String
     {
-        return "";
+        return "0:0:N";
     }
 }
