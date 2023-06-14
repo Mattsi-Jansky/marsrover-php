@@ -20,6 +20,7 @@ class RoverTest extends TestCase
     #[TestWith(["LLLL","0:0:N"])]
     #[TestWith(["M","0:1:N"])]
     #[TestWith(["MMM","0:3:N"])]
+    #[TestWith(["RMMM","3:0:E"])]
     public function given_commands_output_new_position($commands, $expectedOutput)
     {
         $rover = new Rover();
