@@ -56,6 +56,7 @@ class Rover
 
             if ($y == 10) {$y = 0;}
             else if ($y == -1) {$y = 9;}
+            else if($x == 10) {$x = 0;}
             else if($x == -1) {$x = 9;}
         }
 
