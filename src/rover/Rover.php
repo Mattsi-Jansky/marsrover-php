@@ -9,11 +9,20 @@ enum Direction: string {
     case WEST = "W";
 
     public function turnRight(): Direction {
-        return match($this){
+        return match($this) {
             self::NORTH => Direction::EAST,
             self::EAST => Direction::SOUTH,
             self::SOUTH => Direction::WEST,
             self::WEST => Direction::NORTH,
+        };
+    }
+
+    public function turnLeft(): Direction {
+        return match($this) {
+            self::NORTH => Direction::WEST,
+            self::EAST => throw new \Exception('To be implemented'),
+            self::SOUTH => throw new \Exception('To be implemented'),
+            self::WEST => Direction::SOUTH,
         };
     }
 }
@@ -33,7 +42,7 @@ class Rover
             if ($command == "R") {
                 $direction = $direction->turnRight();
             } else {
-                $direction = Direction::WEST;
+                $direction = $direction->turnLeft();
             }
         }
 
