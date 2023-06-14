@@ -9,9 +9,10 @@ use function PHPUnit\Framework\assertEquals;
 class RoverTest extends TestCase
 {
     #[Test]
-    #[TestWith(["L","0:0:W"])]
-    #[TestWith(["R","0:0:E"])]
     #[TestWith(["","0:0:N"])]
+    #[TestWith(["R","0:0:E"])]
+    #[TestWith(["L","0:0:W"])]
+    #[TestWith(["RR","0:0:S"])]
     public function given_commands_output_new_position($commands, $expectedOutput)
     {
         $rover = new Rover();

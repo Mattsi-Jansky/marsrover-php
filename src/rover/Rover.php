@@ -2,6 +2,22 @@
 
 namespace rover;
 
+enum Direction: string {
+    case NORTH = "N";
+    case EAST = "E";
+    case SOUTH = "S";
+    case WEST = "W";
+
+    public function turnRight(): Direction {
+        return match($this){
+            self::NORTH => Direction::EAST,
+            self::EAST => Direction::SOUTH,
+            self::SOUTH => throw new \Exception('To be implemented'),
+            self::WEST => throw new \Exception('To be implemented'),
+        };
+    }
+}
+
 class Rover
 {
 
@@ -11,16 +27,16 @@ class Rover
 
     public function execute(string $commands): String
     {
-        $direction = "N";
+        $direction = Direction::NORTH;
 
         foreach(str_split($commands) as $command) {
             if ($command == "R") {
-                $direction = "E";
+                $direction = $direction->turnRight();
             } else {
-                $direction = "W";
+                $direction = Direction::WEST;
             }
         }
 
-        return "0:0:" . $direction;
+        return "0:0:" . $direction->value;
     }
 }
