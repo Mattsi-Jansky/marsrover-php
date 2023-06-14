@@ -55,6 +55,7 @@ class Rover
             }
 
             if ($y == 10) {$y = 0;}
+            else if ($y == -1) {$y = 9;}
         }
 
         return "$x:$y:$direction->value";
