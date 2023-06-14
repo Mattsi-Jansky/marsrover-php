@@ -49,7 +49,7 @@ class Rover
                 match ($direction) {
                     Direction::NORTH => $y++,
                     Direction::EAST => $x++,
-                    Direction::SOUTH => throw new \Exception('To be implemented'),
+                    Direction::SOUTH => $y--,
                     Direction::WEST => $x--,
                 };
             }
