@@ -12,8 +12,8 @@ enum Direction: string {
         return match($this){
             self::NORTH => Direction::EAST,
             self::EAST => Direction::SOUTH,
-            self::SOUTH => throw new \Exception('To be implemented'),
-            self::WEST => throw new \Exception('To be implemented'),
+            self::SOUTH => Direction::WEST,
+            self::WEST => Direction::NORTH,
         };
     }
 }
