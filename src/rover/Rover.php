@@ -53,6 +53,8 @@ class Rover
                     Direction::WEST => $x--,
                 };
             }
+
+            if ($y == 10) {$y = 0;}
         }
 
         return "$x:$y:$direction->value";
