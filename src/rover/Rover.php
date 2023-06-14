@@ -50,7 +50,7 @@ class Rover
                     Direction::NORTH => $y++,
                     Direction::EAST => $x++,
                     Direction::SOUTH => throw new \Exception('To be implemented'),
-                    Direction::WEST => throw new \Exception('To be implemented'),
+                    Direction::WEST => $x--,
                 };
             }
         }
