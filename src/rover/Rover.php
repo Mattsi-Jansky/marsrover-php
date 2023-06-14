@@ -20,8 +20,8 @@ enum Direction: string {
     public function turnLeft(): Direction {
         return match($this) {
             self::NORTH => Direction::WEST,
-            self::EAST => throw new \Exception('To be implemented'),
-            self::SOUTH => throw new \Exception('To be implemented'),
+            self::EAST => Direction::NORTH,
+            self::SOUTH => Direction::EAST,
             self::WEST => Direction::SOUTH,
         };
     }
