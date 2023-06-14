@@ -37,15 +37,19 @@ class Rover
     public function execute(string $commands): String
     {
         $direction = Direction::NORTH;
+        $x= 0;
+        $y = 0;
 
         foreach(str_split($commands) as $command) {
             if ($command == "R") {
                 $direction = $direction->turnRight();
-            } else {
+            } else if ($command == "L"){
                 $direction = $direction->turnLeft();
+            } else {
+                $y++;
             }
         }
 
-        return "0:0:" . $direction->value;
+        return "$x:$y:$direction->value";
     }
 }
