@@ -47,17 +47,12 @@ class Rover
                 $direction = $direction->turnLeft();
             } else {
                 match ($direction) {
-                    Direction::NORTH => $y++,
-                    Direction::EAST => $x++,
-                    Direction::SOUTH => $y--,
-                    Direction::WEST => $x--,
+                    Direction::NORTH => $y = ($y + 1) % 10,
+                    Direction::EAST => $x = ($x + 1) % 10,
+                    Direction::SOUTH => $y = ($y > 0) ? $y - 1 : 9,
+                    Direction::WEST => $x = ($x > 0) ? $x - 1 : 9,
                 };
             }
-
-            if ($y == 10) {$y = 0;}
-            else if ($y == -1) {$y = 9;}
-            else if($x == 10) {$x = 0;}
-            else if($x == -1) {$x = 9;}
         }
 
         return "$x:$y:$direction->value";
