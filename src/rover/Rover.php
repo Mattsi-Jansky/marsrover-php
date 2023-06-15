@@ -29,6 +29,7 @@ enum Direction: string {
 
 class Rover
 {
+    const MAX_GRID_SIZE = 10;
 
     public function __construct()
     {
@@ -47,10 +48,10 @@ class Rover
                 $direction = $direction->turnLeft();
             } else {
                 match ($direction) {
-                    Direction::NORTH => $y = ($y + 1) % 10,
-                    Direction::EAST => $x = ($x + 1) % 10,
-                    Direction::SOUTH => $y = ($y > 0) ? $y - 1 : 9,
-                    Direction::WEST => $x = ($x > 0) ? $x - 1 : 9,
+                    Direction::NORTH => $y = ($y + 1) % self::MAX_GRID_SIZE,
+                    Direction::EAST => $x = ($x + 1) % self::MAX_GRID_SIZE,
+                    Direction::SOUTH => $y = ($y > 0) ? $y - 1 : self::MAX_GRID_SIZE - 1,
+                    Direction::WEST => $x = ($x > 0) ? $x - 1 : self::MAX_GRID_SIZE - 1,
                 };
             }
         }
